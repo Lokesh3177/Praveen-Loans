@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1A2B5F;
+  --color-gold: #B8961E;
+  --light-bg: #F5F7FA;
+  --color-white: #FFFFFF;
+  --text: #333A4A;
+  --color-cream: #FAF7F0;
+  --color-gold-light: #F3D060;
+  --color-gold-dark: #A67C00;
+  --color-whatsapp: #25D366;
+  --color-gold-pale: #FDF5E0;
+  --color-navy-light: #243375;
+  --font-header: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-body;
+  }
+  h1, h2, h3 {
+    @apply font-header font-bold;
+  }
+}
+
+/* ─── Scroll Animation Utilities ─── */
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Intersection Observer Animation Classes ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.93);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+
+/* ─── WhatsApp Floating Button ─── */
+.whatsapp-float {
+  animation: pulse-glow 2.5s infinite;
+}
+
+/* ─── Hero Animations ─── */
+.hero-badge { animation: fadeInLeft 0.6s ease both; animation-delay: 0.1s; }
+.hero-h1 { animation: fadeInUp 0.7s ease both; animation-delay: 0.25s; }
+.hero-sub { animation: fadeInUp 0.7s ease both; animation-delay: 0.4s; }
+.hero-body { animation: fadeInUp 0.7s ease both; animation-delay: 0.5s; }
+.hero-checks { animation: fadeInUp 0.7s ease both; animation-delay: 0.6s; }
+.hero-btns { animation: fadeInUp 0.7s ease both; animation-delay: 0.7s; }
+.hero-stats { animation: fadeInUp 0.7s ease both; animation-delay: 0.9s; }
+
+/* ─── Card hover lift ─── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* ─── Gold shimmer text ─── */
+.gold-shimmer {
+  background: linear-gradient(90deg, #B8961E 0%, #F3D060 40%, #B8961E 60%, #A67C00 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Step connector line animation ─── */
+.step-line {
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(243,208,96,0.6), rgba(243,208,96,0.1));
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.step-line.visible {
+  width: 100%;
+}
+
+/* ─── Mobile menu ─── */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mobile-menu.open {
+  max-height: 400px;
+}
+
+/* ─── Float animation for stat cards ─── */
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
