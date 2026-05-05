@@ -9,8 +9,8 @@ const About = () => {
 
   const stats = [
     { label: 'Years Experience', val: '10+', icon: <Award className="w-5 h-5 text-gold" /> },
-    { label: 'Happy Clients', val: '500+', icon: <Users className="w-5 h-5 text-gold" /> },
-    { label: 'Bank Partners', val: '15+', icon: <Building2 className="w-5 h-5 text-gold" /> },
+    { label: 'Happy Clients', val: '1500+', icon: <Users className="w-5 h-5 text-gold" /> },
+    { label: 'Bank Partners', val: '50+', icon: <Building2 className="w-5 h-5 text-gold" /> },
     { label: 'Approval Rate', val: '98%', icon: <TrendingUp className="w-5 h-5 text-gold" /> },
   ];
 

@@ -87,9 +87,9 @@ const Hero = () => {
           <div className="pt-10 mt-2 border-t border-white/8 hero-stats">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
-                { label: 'Loans Disbursed', val: '500+' },
+                { label: 'Loans Disbursed', val: '1500+' },
                 { label: 'Approval Rate', val: '98%' },
-                { label: 'Bank Partners', val: '15+' },
+                { label: 'Bank Partners', val: '50+' },
                 { label: 'Loans Funded', val: '₹50Cr+' },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col">
